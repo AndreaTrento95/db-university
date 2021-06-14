@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SOLUZIONI</h1>
+    <hr>
+
+    <h3>
+        1. Selezionare tutti gli studenti nati nel 1990 (160)
+    </h3>
+    <p>
+        SELECT `id`,`name`,`surname`,`date_of_birth` 
+    </p>
+    <p>
+        FROM `students` 
+    </p>
+    <p>
+        WHERE `date_of_birth` BETWEEN '1990-01-01' AND '1990-12-31';
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        2. Selezionare tutti i corsi che valgono più di 10 crediti (479)
+    </h3>
+    <p>
+        SELECT `id`,`name`,`cfu`  
+    </p>
+    <p>
+        FROM `courses`
+    </p>
+    <p>
+        WHERE `cfu` > '10';
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        3. Selezionare tutti gli studenti che hanno più di 30 anni (3106)
+    </h3>
+    <p>
+        SELECT * 
+    </p>
+    <p>
+        FROM `students`
+    </p>
+    <p>
+        WHERE (YEAR(CURDATE()) - YEAR(`date_of_birth`)) > 30;
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
+    </h3>
+    <p>
+        SELECT *  
+    </p>
+    <p>
+        FROM `courses`
+    </p>
+    <p>
+        WHERE `period` LIKE "I semestre" AND `year` LIKE '1';
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
+    </h3>
+    <p>
+        SELECT *  
+    </p>
+    <p>
+        FROM `exams`
+    </p>
+    <p>
+        WHERE `date` LIKE '2020-06-20' AND `hour` > '14:00:00';
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        6. Selezionare tutti i corsi di laurea magistrale (38)
+    </h3>
+    <p>
+        SELECT *  
+    </p>
+    <p>
+        FROM `degrees`
+    </p>
+    <p>
+        WHERE `level` LIKE 'magistrale';
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        7. Da quanti dipartimenti è composta l'università? (12)
+    </h3>
+    <p>
+        SELECT COUNT(*) AS `numero_dipartimenti` 
+    </p>
+    <p>
+        FROM `departments`;
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+    </h3>
+    <p>
+        SELECT `name`,`surname`,`phone`,`email`   
+    </p>
+    <p>
+        FROM `teachers`
+    </p>
+    <p>
+        WHERE `phone` IS NULL
+    </p>
+    <p>
+        ORDER BY `surname` DESC;
+    </p>
+
+
+
+
+</body>
+</html>
