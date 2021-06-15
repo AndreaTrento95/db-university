@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>JOIN</h1>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+    </h3>
+    <p>
+        SELECT
+    </p>
+    <p>
+        `students`.`name`, `students`.`surname`,`students`.`registration_number`,
+    </p>
+    <p>
+        `degrees`.`name` AS `Corso_di_laurea`
+    </p>
+    <p>
+        FROM `degrees`
+    </p>
+    <p>
+        JOIN `students` ON `degrees`.`id` = `students`.`degree_id`
+    </p>
+    <p>
+        WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+
+    <h3>
+        2. Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
+    </h3>
+    <p>
+        SELECT
+    </p>
+    <p>
+        `degrees`.`name`,
+    </p>
+    <p>
+        `departments`.`name`
+    </p>
+    <p>
+        FROM `departments`
+    </p>
+    <p>
+        JOIN `degrees` ON `departments`.`id`= `degrees`.`department_id`
+    </p>
+    <p>
+        WHERE `departments`.`name` = "Dipartimento di Neuroscienze";
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+
+    <h3>
+        3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+    </h3>
+    <p>
+        SELECT
+    </p>
+    <p>
+        `teachers`.`name`,`teachers`.`surname`,
+    </p>
+    <p>
+        `courses`.`name` AS `nome_corso`
+    </p>
+    <p>
+        FROM `teachers`
+    </p>
+    <p>
+        JOIN `course_teacher` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+    </p>
+    <p>
+        JOIN `courses` ON `course_teacher`.`course_id` = `courses`.`id`
+    </p>
+    <p>
+        WHERE `teachers`.`name` = "Fulvio"
+    </p>
+    <p>
+        AND `teachers`.`surname` = "Amato";
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+    <h3>
+        4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il
+        relativo dipartimento, in ordine alfabetico per cognome e nome
+    </h3>
+    <p>
+        SELECT
+    </p>
+    <p>
+        `students`.`surname`,`students`.name,
+    </p>
+    <p>
+        `degrees`.`name` AS `nome_corso` ,`degrees`.`level`,
+    </p>
+    <p>
+        `departments`.`name` AS `nome_dipartimento`
+    </p>
+    <p>
+        FROM `departments`
+    </p>
+    <p>
+        JOIN `degrees` ON `departments`.`id` = `degrees`.`department_id`
+    </p>
+    <p>
+        JOIN `students` ON `degrees`.`id`= `students`.`degree_id`
+    </p>
+    <p>
+        ORDER BY `students`.`surname`,`students`.`name`;
+    </p>
+    <hr>
+
+    <!-- --------------------------------------------- -->
+
+
+
+
+
+    
+</body>
+</html>
